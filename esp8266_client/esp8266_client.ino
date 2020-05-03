@@ -214,7 +214,9 @@ void loop()
   if(WiFi.status () == WL_CONNECTED)      //Put Request
     {     
       HTTPClient http;
-      http.begin(host, 80, "/PutTest.html");
+      String req_string = host;
+      req_string += "/PutTest.html";
+      http.begin(req_string);
       http.addHeader("Content-Type", "text/plain");
 
       String toPut = "This Works";
